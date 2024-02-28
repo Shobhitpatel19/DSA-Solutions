@@ -35,4 +35,4 @@ class Solution {
 }
 
 // TC => O(n)
-// SC => O(h) where h is the maximum height if the tree.
+// SC => O(h) where h is the maximum height of the tree.
