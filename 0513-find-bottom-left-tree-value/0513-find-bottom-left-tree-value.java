@@ -14,25 +14,25 @@
  * }
  */
 class Solution {
-    int maxdepth = -1;
-    int bottomleft;
-    public void dfs(TreeNode root, int currdepth){
-        if(root == null) return;
-
-        if(maxdepth < currdepth){
-            maxdepth = currdepth;
-            bottomleft = root.val;
-        }
-        dfs(root.left, currdepth+1);
-        dfs(root.right, currdepth+1);
-    }
     public int findBottomLeftValue(TreeNode root) {
-        //maxdepth = -1;
-        //bottomleft = root.val;
-        dfs(root, 0);
+        Queue<TreeNode> que = new LinkedList<>();
+        int bottomleft = root.val;
+        que.offer(root);
+
+        while(!que.isEmpty()){
+            int n = que.size();
+            while(n-->0){
+                TreeNode node = que.poll();
+                bottomleft = node.val;
+
+                if(node.right != null){
+                    que.offer(node.right);
+                }
+                if(node.left != null){
+                    que.offer(node.left);
+                }
+            }
+        }
         return bottomleft;
     }
 }
-
-// TC => O(n)
-// SC => O(h) where h is the maximum height of the tree.
