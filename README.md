@@ -180,44 +180,44 @@ This repository contains my solutions to various LeetCode problems. Each solutio
 
 ### Numbers and Sequences
 
-- [Armstrong Numbers](./Easy/armstrong-numbers)
-  Description: Determine if a number is an Armstrong number.
-- [Count numbers containing 4](./Easy/count-numbers-containing-4)
-  Description: Count numbers containing the digit 4 in a range.
-- [Padovan Sequence](./Easy/padovan-sequence)
-  Description: Calculate the Padovan sequence up to a given number.
+- [Armstrong Numbers](./Easy/Armstrong%20Numbers)
+  
+- [Count numbers containing 4](./Easy/Count%20numbers%20containing%204)
+  
+- [Padovan Sequence](./Easy/Padovan%20Sequence)
+  
 
 ### Arrays
 
-- [Convert array into Zig-Zag fashion](./Easy/convert-array-into-zig-zag-fashion)
-  Description: Convert an array into Zig-Zag fashion.
-- [Index of an Extra Element](./Easy/index-of-an-extra-element)
-  Description: Find the index of an extra element in another array.
+- [Convert array into Zig-Zag fashion](./Easy/Convert%20array%20into%20Zig-Zag%20fashion)
+  
+- [Index of an Extra Element](./Easy/Index%20of%20an%20Extra%20Element)
+  
 
 ## GeeksforGeeks - Medium
 
 ### Geometry
 
-- [Check If two Line segments Intersect](./Medium/check-if-two-line-segments-intersect)
-  Description: Check if two line segments intersect.
+- [Check If two Line segments Intersect](./Medium/Check%20If%20two%20Line%20segments%20Intersect)
+ 
 
 ### Arrays and Matrices
 
-- [Max sum in the configuration](./Medium/max-sum-in-the-configuration)
-  Description: Find the maximum sum in a configuration of elements.
-- [Maximum Tip Calculator](./Medium/maximum-tip-calculator)
-  Description: Calculate maximum tips collected from orders.
-- [Mobile numeric keypad](./Medium/mobile-numeric-keypad)
-  Description: Count all possible numbers of given length from a mobile keypad.
-- [Nuts and Bolts Problem](./Medium/nuts-and-bolts-problem)
-  Description: Match nuts and bolts of different sizes.
-- [Swapping pairs make sum equal](./Medium/swapping-pairs-make-sum-equal)
-  Description: Determine if swapping pairs can make sums of two arrays equal.
+- [Max sum in the configuration](./Medium/Max%20sum%20in%20the%20configuration)
+  
+- [Maximum Tip Calculator](./Medium/Maximum%20Tip%20Calculator)
+  
+- [Mobile numeric keypad](./Medium/Mobile%20numeric%20keypad)
+ 
+- [Nuts and Bolts Problem](./Medium/Nuts%20and%20Bolts%20Problem)
+  
+- [Swapping pairs make sum equal](./Medium/Swapping%20pairs%20make%20sum%20equal)
+ 
 
 ### Number Theory
 
-- [Prime Pair with Target Sum](./Medium/prime-pair-with-target-sum)
-  Description: Find pairs of prime numbers with a given sum.
+- [Prime Pair with Target Sum](./Medium/Prime%20Pair%20with%20Target%20Summ)
+  
 
 
 
