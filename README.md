@@ -19,6 +19,10 @@ This repository contains my solutions to various LeetCode problems. Each solutio
 13. [Stack](#stack)
 14. [Queue](#queue)
 
+- [GeeksforGeeks - Easy](#geeksforgeeks---easy)
+- [GeeksforGeeks - Medium](#geeksforgeeks---medium)
+
+
 ## Array
 
 - [0015 - 3Sum](./0015-3sum)
@@ -171,5 +175,49 @@ This repository contains my solutions to various LeetCode problems. Each solutio
 - [0946 - Validate Stack Sequences](./0946-validate-stack-sequences)
 - [1007 - Minimum Domino Rotations For Equal Row](./1007-minimum-domino-rotations-for-equal-row)
 - [1425 - Constrained Subsequence Sum](./1425-constrained-subsequence-sum)
+
+## GeeksforGeeks - Easy
+
+### Numbers and Sequences
+
+- [Armstrong Numbers](./Easy/armstrong-numbers)
+  Description: Determine if a number is an Armstrong number.
+- [Count numbers containing 4](./Easy/count-numbers-containing-4)
+  Description: Count numbers containing the digit 4 in a range.
+- [Padovan Sequence](./Easy/padovan-sequence)
+  Description: Calculate the Padovan sequence up to a given number.
+
+### Arrays
+
+- [Convert array into Zig-Zag fashion](./Easy/convert-array-into-zig-zag-fashion)
+  Description: Convert an array into Zig-Zag fashion.
+- [Index of an Extra Element](./Easy/index-of-an-extra-element)
+  Description: Find the index of an extra element in another array.
+
+## GeeksforGeeks - Medium
+
+### Geometry
+
+- [Check If two Line segments Intersect](./Medium/check-if-two-line-segments-intersect)
+  Description: Check if two line segments intersect.
+
+### Arrays and Matrices
+
+- [Max sum in the configuration](./Medium/max-sum-in-the-configuration)
+  Description: Find the maximum sum in a configuration of elements.
+- [Maximum Tip Calculator](./Medium/maximum-tip-calculator)
+  Description: Calculate maximum tips collected from orders.
+- [Mobile numeric keypad](./Medium/mobile-numeric-keypad)
+  Description: Count all possible numbers of given length from a mobile keypad.
+- [Nuts and Bolts Problem](./Medium/nuts-and-bolts-problem)
+  Description: Match nuts and bolts of different sizes.
+- [Swapping pairs make sum equal](./Medium/swapping-pairs-make-sum-equal)
+  Description: Determine if swapping pairs can make sums of two arrays equal.
+
+### Number Theory
+
+- [Prime Pair with Target Sum](./Medium/prime-pair-with-target-sum)
+  Description: Find pairs of prime numbers with a given sum.
+
 
 
