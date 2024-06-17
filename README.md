@@ -1,4 +1,4 @@
-# LeetCode Solutions
+# LeetCode And GFG Solutions
 
 This repository contains my solutions to various LeetCode problems. Each solution includes the problem description, the code, and performance details. Below is a categorized list of the problems by topic.
 
