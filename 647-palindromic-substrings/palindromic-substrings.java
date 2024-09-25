@@ -30,3 +30,5 @@ class Solution {
         return count;
     }
 }
+
+/* Diagonal Strategy */
