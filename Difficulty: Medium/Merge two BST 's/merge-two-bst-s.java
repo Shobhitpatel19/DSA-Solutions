@@ -111,55 +111,54 @@ class Solution {
     // Function to return a list of integers denoting the node
     // values of both the BST in a sorted order.
     public List<Integer> merge(Node root1, Node root2) {
+        // Step 1: Get the sorted list from both trees.
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
         
-        // Perform inorder traversal on both BSTs
-        inorderTraversal(root1, list1);
-        inorderTraversal(root2, list2);
+        inOrderTraversal(root1, list1);
+        inOrderTraversal(root2, list2);
         
-        // Merge the two sorted lists
+        // Step 2: Merge both sorted lists.
         return mergeSortedLists(list1, list2);
     }
     
-    // Helper function to perform inorder traversal
-    private void inorderTraversal(Node root, List<Integer> list) {
-        if (root == null) {
-            return;
-        }
-        inorderTraversal(root.left, list);
-        list.add(root.data);
-        inorderTraversal(root.right, list);
+    // Helper function to perform in-order traversal of the BST.
+    private void inOrderTraversal(Node root, List<Integer> list) {
+        if (root == null) return;
+        
+        inOrderTraversal(root.left, list);  // Traverse the left subtree.
+        list.add(root.data);                // Visit the root.
+        inOrderTraversal(root.right, list); // Traverse the right subtree.
     }
     
-    // Helper function to merge two sorted lists
+    // Helper function to merge two sorted lists.
     private List<Integer> mergeSortedLists(List<Integer> list1, List<Integer> list2) {
-        List<Integer> mergedList = new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
         int i = 0, j = 0;
         
-        // Merge the two sorted lists
+        // Merge the lists like merging two sorted arrays.
         while (i < list1.size() && j < list2.size()) {
             if (list1.get(i) < list2.get(j)) {
-                mergedList.add(list1.get(i));
+                result.add(list1.get(i));
                 i++;
             } else {
-                mergedList.add(list2.get(j));
+                result.add(list2.get(j));
                 j++;
             }
         }
         
-        // Add remaining elements from list1
+        // Add remaining elements from list1.
         while (i < list1.size()) {
-            mergedList.add(list1.get(i));
+            result.add(list1.get(i));
             i++;
         }
         
-        // Add remaining elements from list2
+        // Add remaining elements from list2.
         while (j < list2.size()) {
-            mergedList.add(list2.get(j));
+            result.add(list2.get(j));
             j++;
         }
         
-        return mergedList;
+        return result;
     }
 }
