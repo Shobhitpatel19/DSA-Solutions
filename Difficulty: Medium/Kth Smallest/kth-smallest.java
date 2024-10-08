@@ -43,22 +43,19 @@ class GFG {
 
 class Solution {
     public static int kthSmallest(int[] arr, int k) {
-        // Your code here
-        // Create a MaxHeap (using a PriorityQueue with reverse order)
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-
-        // Iterate over the array elements
-        for (int num : arr) {
-            // Add the current element to the heap
-            maxHeap.add(num);
-
-            // If the heap size exceeds k, remove the largest element
-            if (maxHeap.size() > k) {
-                maxHeap.poll();  // Poll removes the root, which is the largest element
+        // Your code here 
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        for(int val: arr){
+            if(pq.size() < k){
+                pq.add(val);
+            }else{
+                if(val < pq.peek()){
+                    pq.poll();
+                    pq.add(val);
+                }
             }
         }
-
-        // The root of the MaxHeap is the k-th smallest element
-        return maxHeap.peek();
+        
+        return pq.peek();
     }
 }
