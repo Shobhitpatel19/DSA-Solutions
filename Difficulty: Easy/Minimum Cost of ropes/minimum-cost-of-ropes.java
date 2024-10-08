@@ -28,31 +28,22 @@ public class Main {
 class Solution {
     // Function to return the minimum cost of connecting the ropes.
     public long minCost(long[] arr) {
-        // Create a priority queue (min-heap)
-        PriorityQueue<Long> minHeap = new PriorityQueue<>();
-        
-        // Insert all ropes into the min-heap
-        for (long rope : arr) {
-            minHeap.add(rope);
-        }
-        
+        // code here
+        PriorityQueue<Long> pq = new PriorityQueue<>();
         long totalCost = 0;
-        
-        // While there are more than one rope to connect
-        while (minHeap.size() > 1) {
-            // Extract the two smallest ropes
-            long first = minHeap.poll();
-            long second = minHeap.poll();
-            
-            // Cost to connect these two ropes
-            long cost = first + second;
-            totalCost += cost;
-            
-            // Add the new rope (combined length) back into the min-heap
-            minHeap.add(cost);
+        for(long val: arr){
+            pq.add(val);
         }
         
-        // Return the total cost
+        while(pq.size() > 1){
+            long min = pq.remove();
+            long smin = pq.remove();
+            
+            long sum = min + smin;
+            totalCost += sum;
+            
+            pq.add(sum);
+        }
         return totalCost;
     }
 }
