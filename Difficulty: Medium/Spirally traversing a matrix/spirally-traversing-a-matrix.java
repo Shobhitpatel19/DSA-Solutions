@@ -20,6 +20,8 @@ class GFG {
             ArrayList<Integer> ans = ob.spirallyTraverse(matrix);
             for (Integer val : ans) System.out.print(val + " ");
             System.out.println();
+
+            System.out.println("~");
         }
     }
 }
@@ -27,40 +29,52 @@ class GFG {
 
 
 class Solution {
-    // Function to return a list of integers denoting spiral traversal of matrix.
-    public ArrayList<Integer> spirallyTraverse(int matrix[][]) {
-        // code here
-        ArrayList<Integer> ans = new ArrayList<>();
-        if (matrix.length == 0) return ans;
+    public ArrayList<Integer> spirallyTraverse(int mat[][]) {
+        ArrayList<Integer> result = new ArrayList<>();
         
+        if (mat == null || mat.length == 0) {
+            return result;
+        }
+        
+        int rows = mat.length;
+        int cols = mat[0].length;
+        
+        // Define the boundaries
         int top = 0;
+        int bottom = rows - 1;
         int left = 0;
-        int right = matrix[0].length - 1;
-        int bottom = matrix.length - 1;
+        int right = cols - 1;
         
         while (top <= bottom && left <= right) {
+            // Traverse right
             for (int i = left; i <= right; i++) {
-                ans.add(matrix[top][i]);
+                result.add(mat[top][i]);
             }
             top++;
-            for (int j = top; j <= bottom; j++) {
-                ans.add(matrix[j][right]);
+            
+            // Traverse down
+            for (int i = top; i <= bottom; i++) {
+                result.add(mat[i][right]);
             }
             right--;
+            
             if (top <= bottom) {
+                // Traverse left
                 for (int i = right; i >= left; i--) {
-                    ans.add(matrix[bottom][i]);
+                    result.add(mat[bottom][i]);
                 }
+                bottom--;
             }
-            bottom--;
+            
             if (left <= right) {
-                for (int j = bottom; j >= top; j--) {
-                    ans.add(matrix[j][left]);
+                // Traverse up
+                for (int i = bottom; i >= top; i--) {
+                    result.add(mat[i][left]);
                 }
+                left++;
             }
-            left++;
         }
-    
-        return ans;
+        
+        return result;
     }
 }
