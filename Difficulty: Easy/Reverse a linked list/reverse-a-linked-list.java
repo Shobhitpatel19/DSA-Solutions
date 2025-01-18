@@ -41,9 +41,9 @@ class GFG {
             head = ob.reverseList(head);
             printList(head);
             t--;
-        
-System.out.println("~");
-}
+
+            System.out.println("~");
+        }
     }
 }
 
@@ -65,28 +65,24 @@ class Node {
 */
 
 class Solution {
-    // Function to reverse a linked list.
     Node reverseList(Node head) {
-        // code here
         Node prev = null;
         Node curr = head;
-        Node acurr;
+        Node next = null;
         
-        while(curr != null){
-            acurr = curr.next;
+        while (curr != null) {
+            // Store next node
+            next = curr.next;
+            
+            // Reverse current node's pointer
             curr.next = prev;
+            
+            // Move prev and curr one step forward
             prev = curr;
-            curr = acurr;
+            curr = next;
         }
         
+        // prev is the new head
         return prev;
     }
 }
-
-
-
-
-
-
-
-
