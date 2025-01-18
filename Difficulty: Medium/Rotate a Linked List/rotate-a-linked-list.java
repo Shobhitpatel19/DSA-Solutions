@@ -30,32 +30,41 @@ class Node{
 */
 
 class Solution {
-    // Function to rotate a linked list.
     public Node rotate(Node head, int k) {
         // add code here
-        Node cur=head;
-        int n=0;
-        while(cur!=null){
-            n++;
-            cur=cur.next;
+        if (k == 0 || head == null)
+            return head;
+
+        Node curr = head;
+        int len = 1;
+      
+        // Find the length of linked list
+        while (curr.next != null) {
+            curr = curr.next;
+            len += 1;
         }
-        k=k%n;
-        
-        if(k==0)    return head;
-        
-        cur=head;
-        for(int i=1;i<k;i++){
-            cur=cur.next;
-        }
-        
-        Node new_head=cur.next;
-        cur.next=null;
-        
-        cur=new_head;
-        while(cur.next!=null)   cur=cur.next;
-        cur.next = head;
-        
-        return new_head;
+
+        // Modulo k with length of linked list to handle
+        // large values of k
+        k %= len;
+      
+        if (k == 0)
+            return head;
+      
+          // Make the linked list circular
+        curr.next = head;
+
+        // Traverse the linked list to find the kth node
+        curr = head;
+        for (int i = 1; i < k; i++)
+            curr = curr.next;
+
+        // Update the (k + 1)th node as the new head
+        head = curr.next;
+      
+        // Break the loop by updating next pointer of kth node
+        curr.next = null;
+        return head;
     }
 }
 
@@ -100,6 +109,8 @@ public class GFG {
             Solution ob = new Solution();
             head = ob.rotate(head, k);
             printList(head);
+
+            System.out.println("~");
         }
     }
 }
