@@ -17,6 +17,16 @@ class GFG {
             if (ans.size() == 0)
                 System.out.println("-1");
             else {
+                ans.sort((list1, list2) -> {
+                    int size = Math.min(list1.size(), list2.size());
+                    for (int i = 0; i < size; i++) {
+                        if (!list1.get(i).equals(list2.get(i))) {
+                            return list1.get(i) - list2.get(i);
+                        }
+                    }
+                    return list1.size() - list2.size();
+                });
+
                 for (int i = 0; i < ans.size(); i++) {
                     System.out.print("[");
                     for (int j = 0; j < ans.get(i).size(); j++)
@@ -25,6 +35,8 @@ class GFG {
                 }
                 System.out.println();
             }
+
+            System.out.println("~");
         }
     }
 }
@@ -35,35 +47,37 @@ class GFG {
 
 class Solution {
     public ArrayList<ArrayList<Integer>> nQueen(int n) {
-        // Code Here
-        ArrayList<ArrayList<Integer>> solutions = new ArrayList<>();
-        ArrayList<Integer> board = new ArrayList<>();
-        solveNQueens(solutions, board, n);
-        return solutions;
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        int[] board = new int[n];
+        solveNQueens(result, board, 0, n);
+        return result;
     }
 
-    private void solveNQueens(ArrayList<ArrayList<Integer>> solutions, ArrayList<Integer> board, int n) {
-        if (board.size() == n) {
-            solutions.add(new ArrayList<>(board));
+    private void solveNQueens(ArrayList<ArrayList<Integer>> result, int[] board, int col, int n) {
+        if (col == n) {
+            ArrayList<Integer> solution = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                solution.add(board[i] + 1); // Adding 1 to convert from 0-based to 1-based indexing
+            }
+            result.add(solution);
             return;
         }
-        
-        for (int row = 1; row <= n; row++) {
-            if (isSafe(board, row)) {
-                board.add(row);
-                solveNQueens(solutions, board, n);
-                board.remove(board.size() - 1);
+
+        for (int row = 0; row < n; row++) {
+            if (isSafe(board, row, col, n)) {
+                board[col] = row;
+                solveNQueens(result, board, col + 1, n);
             }
         }
     }
 
-    private boolean isSafe(ArrayList<Integer> board, int row) {
-        int currentCol = board.size();
-        for (int col = 0; col < currentCol; col++) {
-            int queenRow = board.get(col);
-            // Check if in the same row or on the same diagonal
-            if (queenRow == row || Math.abs(queenRow - row) == Math.abs(col - currentCol)) {
-                return false;
+    private boolean isSafe(int[] board, int row, int col, int n) {
+        for (int i = 0; i < col; i++) {
+            if (board[i] == row) {
+                return false; // Same row
+            }
+            if (Math.abs(board[i] - row) == Math.abs(i - col)) {
+                return false; // Same diagonal
             }
         }
         return true;
