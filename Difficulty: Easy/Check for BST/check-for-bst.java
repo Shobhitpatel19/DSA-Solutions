@@ -98,7 +98,9 @@ class GfG {
             else
                 System.out.println("false");
             t--;
-        }
+        
+System.out.println("~");
+}
     }
 }
 
@@ -108,26 +110,21 @@ class GfG {
 // User function Template for Java
 
 class Solution {
-    // Function to check whether a Binary Tree is BST or not.
-    boolean isBST(Node root) {
-        // code here.
-        return isBSTUtil(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    // Helper function to check if a binary tree is a BST using inorder traversal.
+    private boolean isValidBST(Node root, long min, long max) {
+        // Base case: if the node is null, return true.
+        if (root == null) return true;
+
+        // If the current node violates the min/max constraints, return false.
+        if (root.data <= min || root.data >= max) return false;
+
+        // Recursively check the left and right subtrees with updated constraints.
+        return isValidBST(root.left, min, root.data) && 
+               isValidBST(root.right, root.data, max);
     }
-    
-    boolean isBSTUtil(Node node, long min, long max) {
-        // An empty tree is a BST
-        if (node == null) {
-            return true;
-        }
-        
-        // Check if the current node's value is within the valid range
-        if (node.data <= min || node.data >= max) {
-            return false;
-        }
-        
-        // Recursively check the left and right subtrees
-        // Left subtree must have values < node.val
-        // Right subtree must have values > node.val
-        return isBSTUtil(node.left, min, node.data) && isBSTUtil(node.right, node.data, max);
+
+    // Main function to check if the tree is a BST.
+    boolean isBST(Node root) {
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 }
