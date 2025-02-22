@@ -1,53 +1,59 @@
 //{ Driver Code Starts
-//Initial Template for Java
+// Initial Template for Java
 
 import java.io.*;
 import java.util.*;
 
-class GFG{
-    public static void main(String args[])throws IOException
-    {
+class GFG {
+    public static void main(String args[]) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(in.readLine());
-        while(t-- > 0){
+        while (t-- > 0) {
             String S = in.readLine();
-            
+
             Solution ob = new Solution();
             System.out.println(ob.maxLength(S));
+
+            System.out.println("~");
         }
     }
 }
 // } Driver Code Ends
 
 
-//User function Template for Java
 
 class Solution {
-    static int maxLength(String S) {
-        // Stack to store indices of parentheses
-        Stack<Integer> stack = new Stack<>();
-        // Push -1 as a base to calculate the length of valid parentheses
-        stack.push(-1);
-        int maxLength = 0;
+    static int maxLength(String s) {
+        int maxLen = 0;
+        int open = 0, close = 0;
         
-        // Traverse through the string
-        for (int i = 0; i < S.length(); i++) {
-            if (S.charAt(i) == '(') {
-                // Push the index of '(' onto the stack
-                stack.push(i);
-            } else {
-                // Pop the previous index for ')'
-                stack.pop();
-                if (!stack.isEmpty()) {
-                    // Calculate the length of the current valid parentheses
-                    maxLength = Math.max(maxLength, i - stack.peek());
-                } else {
-                    // If the stack is empty, push the current index
-                    stack.push(i);
-                }
+        // Left to Right scan
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') open++;
+            else close++;
+            
+            if (open == close) {
+                maxLen = Math.max(maxLen, 2 * close);
+            } else if (close > open) {
+                open = close = 0;
             }
         }
         
-        return maxLength;
+        // Reset counters
+        open = close = 0;
+
+        // Right to Left scan
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == ')') close++;
+            else open++;
+
+            if (open == close) {
+                maxLen = Math.max(maxLen, 2 * open);
+            } else if (open > close) {
+                open = close = 0;
+            }
+        }
+
+        return maxLen;
     }
 }
